@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO">
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="[%p] %d{ISO8601} - [demo-processor] %c - %m%n"/>
+        </Console>
+        <Kafka name="Kafka" topic="spring-dataflow-logs">
+            <!--add properties are pattern layout here -->
+        </Kafka>
+    </Appenders>
+
+    <Loggers>
+        <Root level="INFO">
+            <AppenderRef ref="Console"/>
+            <!--            <AppenderRef ref="Kafka"/>-->
+        </Root>
+        <!-- avoid recursive logging! NEVER use a level below INFO -->
+        <Logger name="org.apache.kafka" level="WARN">
+            <!--            <AppenderRef ref="Kafka"/>-->
+        </Logger>
+    </Loggers>
+
+</Configuration>
