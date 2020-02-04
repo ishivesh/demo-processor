@@ -23,7 +23,7 @@ public class DemoProcessorApplication {
             .map(
                 s -> {
                     try {
-                        Thread.sleep(1000L);
+                        Thread.sleep(5000L);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
