@@ -20,15 +20,6 @@ public class DemoProcessorApplication {
     @Bean
     public Function<Flux<String>, Flux<String>> process() {
         return stringFlux -> stringFlux
-            .map(
-                s -> {
-                    try {
-                        Thread.sleep(5000L);
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                    return s;
-                })
             .map(s -> s.toUpperCase())
             .log();
     }
